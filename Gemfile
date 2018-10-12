@@ -21,6 +21,7 @@ dbfile = File.expand_path("../config/database.yml", __FILE__)
 
 
 source 'https://rubygems.org'
+ruby "1.9.3"
 
 gem 'pg'
 
