@@ -24,6 +24,29 @@ require 'cgi'
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "selectors"))
 
+
+#====MY SHIT
+
+When /^I click the categories link$/ do
+  visit("/admin/categories/")
+  #equivalent: click_link("Categori")
+end
+
+Then /^I should see the categories page$/ do
+  assert page.has_content? ("Categories")
+end
+
+When /^I click the "(.+)" category$/ do |cat|
+  click_link(cat)
+end
+
+When /^I click Delete$/ do
+  click_link("Delete")
+end
+
+#====END MY SHIT
+
+
 module WithinHelpers
   def with_scope(locator)
     locator ? within(*selector_for(locator)) { yield } : yield

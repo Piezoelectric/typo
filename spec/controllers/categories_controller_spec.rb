@@ -1,5 +1,8 @@
 require 'spec_helper'
 
+#Wait, this isn't the file we're supposed to modify...
+#I guess we could though...
+
 describe CategoriesController, "/index" do
   before do
     Factory(:blog)
@@ -8,6 +11,18 @@ describe CategoriesController, "/index" do
       2.times { category.articles << Factory(:article) }
     }
   end
+  
+=begin
+  #function copypasted from the "#show" path, but not identical
+  def do_get
+    get '/index'
+  end
+
+  it 'should be successful' do
+    do_get
+    response.should be_success
+  end
+=end
 
   describe "normally" do
     before do
